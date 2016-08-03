@@ -1,6 +1,6 @@
 %%%%% Change viewport %%%%%
 
------ Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
++++++ Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
 
 page.meta >
 page.meta {
@@ -17,9 +17,49 @@ page.meta {
 }
 
 
+
+
+
 %%%%% Add fonts %%%%%
 
------ Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
++++++ Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
 
 page.headerData.231 = TEXT 
 page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+
+
+
+
+
+%%%%% Add custom layout/wrapper class to element %%%%%
+
++++++ Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
+
+tt_content {
+    imageTextLink {
+        dataProcessing {
+            1910 {
+                classMappings {
+                    1001 = colored-background _color-1
+                    1002 = colored-background _color-2
+                    1003 = colored-background _color-3
+                }
+            }
+        }
+    }
+}
+
++++++ Add this lines to "fileadmin/templates/Configuration/PageTS/FluidContent.pagets" 
+
+TCEFORM.tt_content.layout {
+    types {
+        imageTextLink {
+            addItems {
+                --div-- = ImageTextLink layouts:
+                1001 = Colored background. Color-1
+                1002 = Colored background. Color-2
+                1003 = Colored background. Color-3
+            }
+        }
+    }
+}
