@@ -63,3 +63,11 @@ TCEFORM.tt_content.layout {
         }
     }
 }
+
+
+
+
+
+%%%%% Library folder %%%%%
+
+typo3conf/ext/theme_t3kit/Configuration/TypoScript/Library/lib.fluidContent.setupts
