@@ -33,6 +33,12 @@ page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=
 
 %%%%% Add custom layout/wrapper class to element %%%%%
 
+===== 365 = wrapper
+===== 395 = aligning
+===== 375 = margin-top
+===== 385 = margin-bottom
+===== 1910 = layout
+
 +++++ Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
 
 tt_content {
