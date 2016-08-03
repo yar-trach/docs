@@ -1,0 +1,19 @@
+%%%%% Change viewport %%%%%
+
+----- Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" -----
+
+page.meta >
+page.meta {
+
+    X-UA-Compatible = ie=edge
+    X-UA-Compatible.httpEquivalent = 1
+    viewport = width=device-width, initial-scale=1.0, maximum-scale=2.0
+
+    mobile-web-app-capable = yes
+    apple-mobile-web-app-capable = yes
+    apple-mobile-web-app-status-bar-style = black
+    format-detection = telephone=no
+
+}
+
+-----------------------------------------------------------------------------------------------------
