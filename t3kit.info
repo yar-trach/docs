@@ -16,3 +16,10 @@ page.meta {
 
 }
 
+
+%%%%% Add fonts %%%%%
+
+----- Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
+
+page.headerData.231 = TEXT 
+page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
