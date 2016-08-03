@@ -1,6 +1,6 @@
 %%%%% Change viewport %%%%%
 
------ Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" -----
+----- Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
 
 page.meta >
 page.meta {
@@ -16,4 +16,3 @@ page.meta {
 
 }
 
------------------------------------------------------------------------------------------------------
