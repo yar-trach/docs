@@ -33,11 +33,11 @@ page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=
 
 %%%%% Add custom layout/wrapper class to element %%%%%
 
+===== 1910 = layout
 ===== 365 = wrapper
 ===== 395 = aligning
 ===== 375 = margin-top
 ===== 385 = margin-bottom
-===== 1910 = layout
 
 +++++ Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
 
@@ -77,3 +77,11 @@ TCEFORM.tt_content.layout {
 %%%%% Library folder %%%%%
 
 typo3conf/ext/theme_t3kit/Configuration/TypoScript/Library/lib.fluidContent.setupts
+
+
+
+
+
+%%%%% Default elements folder %%%%%
+
+typo3/sysext/fluid_styled_content/Configuration/TypoScript/Static/setup.txt
