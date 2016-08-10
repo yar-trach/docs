@@ -31,6 +31,14 @@ page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=
 
 
 
+%%%%% Overwrite fonts set %%%%%
+
+To overwrite fonts you need to use %%%%% Add fonts %%%%% info, but instead "231" var use "186"
+
+
+
+
+
 %%%%% Add custom layout/wrapper class to element %%%%%
 
 ===== 1910 = layout
