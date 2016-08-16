@@ -93,3 +93,51 @@ typo3conf/ext/theme_t3kit/Configuration/TypoScript/Library/lib.fluidContent.setu
 %%%%% Default elements folder %%%%%
 
 typo3/sysext/fluid_styled_content/Configuration/TypoScript/Static/setup.txt
+
+
+
+
+
+%%%%% Add color picker %%%%%
+
+To add color picker to element you need to create flex form.
+Structure of flex form will be next:
+
+<T3DataStructure>
+    <meta>
+        <langDisable>1</langDisable>
+    </meta>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:theme_t3kit/Resources/Private/Language/ContentElements.xlf:iconTextButton.flexform.sheetGeneral</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <color>
+                        <TCEforms>
+                        <label>LLL:fileadmin/templates/theme_t3kit/custom_content_elements/Resources/Private/Language/CustomContentElements.xlf:nextButton.color</label>
+                        <config>
+                            <type>input</type>
+                            <size>10</size>
+                            <wizards>
+                                <colorChoice>
+                                    <type>colorbox</type>
+                                    <title>color</title>
+                                    <module>
+                                        <name>wizard_colorpicker</name>
+                                    </module> 
+                                    <JSopenParams>height=600,width=380,status=0,menubar=0,scrollbars=1</JSopenParams>
+                                </colorChoice>
+                            </wizards>
+                        </config>
+                    </TCEforms>
+                  </color>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>
+
+
