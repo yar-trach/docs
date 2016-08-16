@@ -140,4 +140,10 @@ Structure of flex form will be next:
     </sheets>
 </T3DataStructure>
 
+And add configs to setup TS
 
+20 = T3kit\T3kitExtensionTools\DataProcessing\FlexFormProcessor
+20 {
+    fieldName = pi_flexform
+    as = settings
+}
