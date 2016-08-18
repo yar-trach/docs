@@ -175,3 +175,37 @@ plugin.tx_themes.view.partialRootPaths.600 = fileadmin/templates/PROJECT_TITLE/P
 #Structure should be same like in t3kit_theme
 #f.e.:
 #/PROJECT_TITLE/Partials/Header/Header.html
+
+
+
+
+
+
+%%%%% Setting elements to partials %%%%%
+
+#Add logo to header (custom place)
+#Add wrapper to partial
+
+<div class="header-top__sub-logo">
+    <f:cObject typoscriptObjectPath="lib.header.top.text" />
+    <f:cObject typoscriptObjectPath="lib.header.top.logo" />
+</div>
+
+#Add settings to Setup
+
+lib.header.top {
+    logo = IMAGE
+    logo.file = fileadmin/custom/images/nt-cargo-logo.svg
+    logo.titleText = {$themes.configuration.siteName}
+    logo.altText = {$themes.configuration.siteName}
+    logo.params = class="header-top__sub-logo-img img-responsive"
+    logo.stdWrap {
+        required = 1
+        typolink {
+            parameter = 150
+            parameter.insertData = 1
+            title = {$themes.configuration.siteName}
+            ATagParams = class="sub-class"
+        }
+    }
+}
