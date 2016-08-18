@@ -1,6 +1,6 @@
 %%%%% Change viewport %%%%%
 
-#Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
+# Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
 
 page.meta >
 page.meta {
@@ -22,7 +22,7 @@ page.meta {
 
 %%%%% Add fonts %%%%%
 
-#Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
+# Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
 
 page.headerData.231 = TEXT 
 page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
@@ -33,7 +33,7 @@ page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=
 
 %%%%% Overwrite fonts set %%%%%
 
-#To overwrite fonts you need to use %%%%% Add fonts %%%%% info, but instead "231" var use "186"
+# To overwrite fonts you need to use %%%%% Add fonts %%%%% info, but instead "231" var use "186"
 
 
 
@@ -41,13 +41,13 @@ page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=
 
 %%%%% Add custom layout/wrapper class to element %%%%%
 
-#1910 = layout
-#365 = wrapper
-#395 = aligning
-#375 = margin-top
-#385 = margin-bottom
+# 1910 = layout
+# 365 = wrapper
+# 395 = aligning
+# 375 = margin-top
+# 385 = margin-bottom
 
-#Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
+# Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
 
 tt_content {
     imageTextLink {
@@ -63,7 +63,7 @@ tt_content {
     }
 }
 
-#Add this lines to "fileadmin/templates/Configuration/PageTS/FluidContent.pagets" 
+# Add this lines to "fileadmin/templates/Configuration/PageTS/FluidContent.pagets" 
 
 TCEFORM.tt_content.layout {
     types {
@@ -100,8 +100,8 @@ typo3/sysext/fluid_styled_content/Configuration/TypoScript/Static/setup.txt
 
 %%%%% Add color picker %%%%%
 
-#To add color picker to element you need to create flex form.
-#Structure of flex form will be next:
+# To add color picker to element you need to create flex form.
+# Structure of flex form will be next:
 
 <T3DataStructure>
     <meta>
@@ -140,7 +140,7 @@ typo3/sysext/fluid_styled_content/Configuration/TypoScript/Static/setup.txt
     </sheets>
 </T3DataStructure>
 
-#And add configs to setup TS
+# And add configs to setup TS
 
 20 = T3kit\T3kitExtensionTools\DataProcessing\FlexFormProcessor
 20 {
@@ -155,7 +155,7 @@ typo3/sysext/fluid_styled_content/Configuration/TypoScript/Static/setup.txt
 
 %%%%% Adding/updating templates and partials %%%%%
 
-#Add this to Setup
+# Add this to Setup
 
 plugin.tx_themes {
     view {
@@ -168,13 +168,13 @@ plugin.tx_themes {
     }
 }
 
-#or INLINE
+# or INLINE
 
 plugin.tx_themes.view.partialRootPaths.600 = fileadmin/templates/PROJECT_TITLE/Partials
 
-#Structure should be same like in t3kit_theme
-#f.e.:
-#/PROJECT_TITLE/Partials/Header/Header.html
+# Structure should be same like in t3kit_theme
+# f.e.:
+# /PROJECT_TITLE/Partials/Header/Header.html
 
 
 
@@ -183,15 +183,15 @@ plugin.tx_themes.view.partialRootPaths.600 = fileadmin/templates/PROJECT_TITLE/P
 
 %%%%% Setting elements to partials %%%%%
 
-#Add logo to header (custom place)
-#Add wrapper to partial
+# Add logo to header (custom place)
+# Add wrapper to partial
 
 <div class="header-top__sub-logo">
     <f:cObject typoscriptObjectPath="lib.header.top.text" />
     <f:cObject typoscriptObjectPath="lib.header.top.logo" />
 </div>
 
-#Add settings to Setup
+# Add settings to Setup
 
 lib.header.top {
     logo = IMAGE
@@ -206,6 +206,26 @@ lib.header.top {
             parameter.insertData = 1
             title = {$themes.configuration.siteName}
             ATagParams = class="sub-class"
+        }
+    }
+}
+
+
+
+
+
+%%%%% Include custom.js %%%%%
+
+# custom.js is disabled by default, but it could be enabled if it needed
+# Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
+
+page {
+    includeJSFooter {
+        customJs = fileadmin/custom/js/custom.js
+        customJs {
+            external = 0
+            disableCompression =
+            excludeFromConcatenation =
         }
     }
 }
