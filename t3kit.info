@@ -41,6 +41,8 @@ page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=
 
 %%%%% Add custom layout/wrapper class to element %%%%%
 
+# tags: wrapper, layout, class
+
 # 1910 = layout
 # 365 = wrapper
 # 395 = aligning
@@ -176,6 +178,27 @@ plugin.tx_themes.view.partialRootPaths.600 = fileadmin/templates/PROJECT_TITLE/P
 # f.e.:
 # /PROJECT_TITLE/Partials/Header/Header.html
 
+
+
+
+
+%%%%% Adding templates for News extantion %%%%%
+
+# tags: news, templates
+
+# Copy all templates to new folder and add custom templates
+# /fileadmin/templates/News/Partials/List
+
+
+# Add this lines to Resources->Page TSConfig
+
+tx_news.templateLayouts {
+    NewsCarousel = News carousel
+    Cards  = News as Cards
+    SimpleList = News as Simple List
+    Timeline = News list with timeline
+    AntroList = News Antroposofi List
+}
 
 
 
