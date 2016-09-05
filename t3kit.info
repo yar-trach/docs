@@ -1,6 +1,17 @@
+%%%%% CONSTANTS %%%%%
+
+Setup   : "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts"
+PageTS  : "fileadmin/templates/Configuration/PageTS/FluidContent.pagets"
+
+%%%%% END OF CONSTANTS %%%%%
+
+
+
+
+
 %%%%% Change viewport %%%%%
 
-# Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
+# Add this lines to Setup 
 
 page.meta >
 page.meta {
@@ -22,7 +33,7 @@ page.meta {
 
 %%%%% Add fonts %%%%%
 
-# Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
+# Add this lines to Setup
 
 page.headerData.231 = TEXT 
 page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
@@ -49,7 +60,7 @@ page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=
 # 375 = margin-top
 # 385 = margin-bottom
 
-# Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
+# Add this lines to Setup
 
 tt_content {
     imageTextLink {
@@ -65,7 +76,7 @@ tt_content {
     }
 }
 
-# Add this lines to "fileadmin/templates/Configuration/PageTS/FluidContent.pagets" 
+# Add this lines to PageTS
 
 TCEFORM.tt_content.layout {
     types {
@@ -78,6 +89,33 @@ TCEFORM.tt_content.layout {
             }
         }
     }
+}
+
+# Adding custom wrappers for grid elements
+
+# tags: grid, wrapper, class
+
+tt_content {
+    gridelements_pi1.20.10.setup.Adv1ColumnGrid.cObject {
+        dataProcessing {
+            365 {
+                classMappings {
+                    1001 = colored-background _color-1
+                }
+            }
+        }
+    }
+}
+
+TCEFORM.tt_content.wrapper {
+   types {
+       gridelements_pi1 {
+           # Based on that the default items still exists.
+           addItems {
+                1001 = Colored background. Color-1
+           }
+       }
+   }
 }
 
 
@@ -200,6 +238,9 @@ tx_news.templateLayouts {
     AntroList = News Antroposofi List
 }
 
+# And this to Setup
+plugin.tx_news.view.partialRootPaths.2 = fileadmin/templates/News/Partials/ 
+
 
 
 
@@ -252,3 +293,15 @@ page {
         }
     }
 }
+
+
+
+
+
+%%%%% Debugging %%%%%
+
+# tags: debug, setup
+
+# Add this to Setup for debugging 
+
+config.contentObjectExceptionHandler = 0
