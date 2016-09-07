@@ -195,6 +195,8 @@ typo3/sysext/fluid_styled_content/Configuration/TypoScript/Static/setup.txt
 
 %%%%% Adding/updating templates and partials %%%%%
 
+# tags: partials, templates, header
+
 # Add this to Setup
 
 plugin.tx_themes {
@@ -281,12 +283,33 @@ lib.header.top {
 %%%%% Include custom.js %%%%%
 
 # custom.js is disabled by default, but it could be enabled if it needed
-# Add this lines to "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts" 
+# Add this lines to Setup
 
 page {
     includeJSFooter {
         customJs = fileadmin/custom/js/custom.js
         customJs {
+            external = 0
+            disableCompression =
+            excludeFromConcatenation =
+        }
+    }
+}
+
+
+
+
+
+%%%%% Add custom CSS/LESS files to head %%%%%
+
+# tags: css, less, custom
+
+# Add this lines to Setup
+
+page {
+    includeCSS {
+        nanoCSS = fileadmin/custom/css/custom-nano.less
+        nanoCSS {
             external = 0
             disableCompression =
             excludeFromConcatenation =
@@ -305,3 +328,20 @@ page {
 # Add this to Setup for debugging 
 
 config.contentObjectExceptionHandler = 0
+
+
+
+
+
+%%%%% Adding custom variables (constants) %%%%%
+
+# tags: custom, constants, variables, theme
+
+# Add this to Constants (Root / Template)
+
+themes.configuration.header.background = #f3ac24
+
+# How to get constant:
+# use this constant with curly braces
+
+{theme:constant(constant:'themes.configuration.header.background')}
