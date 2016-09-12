@@ -195,7 +195,7 @@ typo3/sysext/fluid_styled_content/Configuration/TypoScript/Static/setup.txt
 
 %%%%% Adding/updating templates and partials %%%%%
 
-# tags: partials, templates, header
+# tags: partials, templates, layouts, header
 
 # Add this to Setup
 
@@ -207,6 +207,9 @@ plugin.tx_themes {
         templateRootPaths{
             640 = fileadmin/templates/PROJECT_TITLE/Templates/
         }
+        layoutRootPaths{
+            640 = fileadmin/templates/PROJECT_TITLE/Layouts/
+        }
     }
 }
 
@@ -217,6 +220,79 @@ plugin.tx_themes.view.partialRootPaths.600 = fileadmin/templates/PROJECT_TITLE/P
 # Structure should be same like in t3kit_theme
 # f.e.:
 # /PROJECT_TITLE/Partials/Header/Header.html
+
+
+
+
+%%%%% Adding layouts BE %%%%%
+
+# tags: layouts, BE
+
+# Add this to Setup
+
+plugin.tx_themes {
+    view {
+        layoutRootPaths{
+            640 = fileadmin/templates/PROJECT_TITLE/Layouts/
+        }
+    }
+}
+
+# Add this lines to Page TSConfig
+
+mod.web_layout.BackendLayouts {
+    Nano {
+        icon = EXT:theme_t3kit/Resources/Public/Icons/BackendLayouts/Content.svg
+        name = Nano
+        title = Nano
+        config {
+            backend_layout {
+                colCount = 1
+                rowCount = 2
+                rows {
+                    1 {
+                        columns {
+                            1 {
+                                name = LLL:EXT:theme_t3kit/Resources/Private/Language/BackendLayouts.xlf:area_content
+                                rowspan = 1
+                                colPos = 0
+                            }
+                        }
+                    }
+                    2 {
+                        columns {
+                            1 {
+                                name = LLL:EXT:theme_t3kit/Resources/Private/Language/BackendLayouts.xlf:area_elements
+                                rowspan = 1
+                                colPos = 4
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# Create Nano.html in fileadmin/templates/PROJECT_TITLE/Layouts/
+
+<!-- theme_t3kit: Layouts/Nano.html [begin] -->
+<f:render section="Default"/>
+<!-- theme_t3kit: Layouts/Nano.html [end] -->
+
+# Create fileadmin/templates/PROJECT_TITLE/Templates/Theme/ folder
+# Create Nano.html here
+
+<div xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
+    <f:layout name="Nano" />
+    <f:section name="Default">
+    <!-- theme_t3kit: Templates/Theme/Nano.html [begin] -->
+
+    <f:render partial="Content/Main" section="Default" arguments="{_all}" />
+
+    <!-- theme_t3kit: Templates/Theme/Nano.html [end] -->
+    </f:section>
+</div>
 
 
 
@@ -345,3 +421,40 @@ themes.configuration.header.background = #f3ac24
 # use this constant with curly braces
 
 {theme:constant(constant:'themes.configuration.header.background')}
+
+
+
+
+
+
+%%%%% Page TSConfig in file %%%%%
+
+# tags: TSConfig
+
+# Add this to Page TSConfig anf create file page.ts in this folder
+
+<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/templates/PROJECT_TITLE/PageTS/page.ts">
+
+
+
+
+
+%%%%% How to add/change language constants %%%%%
+
+# tags: constants, language, setup
+
+# Add this to Setup
+
+plugin.tx_extname {
+    _LOCAL_LANG.DEFAULT {
+        someConstant = some value
+    }
+}
+
+# Example
+
+plugin.tx_pxanewslettersubscription {
+    _LOCAL_LANG.da {
+        subscribe = Tilmeld
+    }
+}
