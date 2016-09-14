@@ -458,3 +458,37 @@ plugin.tx_pxanewslettersubscription {
         subscribe = Tilmeld
     }
 }
+
+
+
+
+%%%%% Fluid variables %%%%%
+
+# tags: var, custom, fluid
+
+# Add this to template/partial (html)
+
+<v:variable.set name="count" value="{product.attributeValues -> f:count()}" />
+<f:if condition="{settings.includeSkuInAttributeListing}">
+    <f:then>
+        <v:variable.set name="fullCount" value="{v:math.sum(a: count, fail: 0, b: 1)}" />
+        <v:variable.set name="halfCount" value="{v:math.division(a: fullCount, fail: 0, b: 2)}" />
+        <v:variable.set name="halfCount" value="{v:math.ceil(a: halfCount, fail: 0)}" />
+        <v:variable.set name="halfCount" value="{v:math.subtract(a: halfCount, fail: 0, b: 1)}" />
+    </f:then>
+    <f:else>
+        <v:variable.set name="fullCount" value="{count}" />
+        <v:variable.set name="halfCount" value="{v:math.division(a: fullCount, fail: 0, b: 2)}" />
+        <v:variable.set name="halfCount" value="{v:math.ceil(a: halfCount, fail: 0)}" />
+    </f:else>
+</f:if>
+<v:variable.set name="mod" value="{v:math.modulo(a: fullCount, b: 2)}" />
+<f:if condition="{mod} != 0">
+    <v:variable.set name="addLine" value="1" />
+</f:if>
+
+# Use "addLine" variable later
+
+<f:if condition="{addLine}">
+    <tr><th>&nbsp;</th><td></td></tr>
+</f:if>
