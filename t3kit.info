@@ -534,3 +534,21 @@ RewriteRule ^(.*)$ http://www.intimhalsa.se/$1 [R=301,L]
 RewriteCond %{HTTP_HOST} ^(www\.)?epipenuk.meda-core.local$
 RewriteCond %{REQUEST_URI} ^/patients/(.*)$
 RewriteRule ^(.*)$ http://www.intimhalsa.se/patients/ [R=301,L]
+
+
+
+
+
+%%%%% PID - task ID in console %%%%%
+
+# tags; pid, tasks, search
+
+# Write it in console to find Grunt's PID 
+
+ps aux | grep grunt
+
+# Find in table 'grunt' and it PID,
+# Write it in console to kill Grunt task
+
+kill {pid}
+
