@@ -462,6 +462,7 @@ plugin.tx_pxanewslettersubscription {
 
 
 
+
 %%%%% Fluid variables %%%%%
 
 # tags: var, custom, fluid
@@ -492,3 +493,44 @@ plugin.tx_pxanewslettersubscription {
 <f:if condition="{addLine}">
     <tr><th>&nbsp;</th><td></td></tr>
 </f:if>
+
+
+
+
+
+%%%%% HTACCESS redirects %%%%%
+
+# tags: htaccess, redirects
+
+http://htaccess.madewithlove.be/
+RewriteCond %{HTTP_HOST} ^(www\.)?meda.dk$
+RewriteCond %{REQUEST_URI} ^/sundhedspersonale/
+RewriteRule ^(.*)$ http://www.medainfo.dk/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} ^(www\.)?medainfo.dk$
+RewriteCond %{REQUEST_URI} ^/forbruger/
+RewriteRule ^(.*)$ http://www.meda.dk/$1 [R=301,L]
+
+RewriteCond %{HTTP_HOST} fr.naloc.be [NC]
+RewriteCond %{REQUEST_URI} ^/$
+Rewriterule ^(.*)$ http://www.naloc.be/fr/ [L,R=301]
+
+~~~~~ redirect from just main page to some subpage ~~~~~
+RewriteCond %{HTTP_HOST} ^(www\.)?intimhalsa.se$
+RewriteCond %{REQUEST_URI} ^/$                 
+RewriteRule ^(.*)$ http://www.intimhalsa.se/erektion/ [R=301,L]
+
+~~~~~ redirect just one subpage to another domain subpage ~~~~~
+RewriteCond %{HTTP_HOST} ^(www\.)?epipenuk.meda-core.local$
+RewriteCond %{REQUEST_URI} ^/patients/$
+RewriteRule ^(.*)$ http://www.intimhalsa.se/erektion/ [R=301,L]
+
+~~~~~ redirect single page with same name to another domain, regex ~~~~~
+RewriteCond %{HTTP_HOST} ^(www\.)?epipenuk.meda-core.local$
+RewriteCond %{REQUEST_URI} ^/patients/?$
+RewriteRule ^(.*)$ http://www.intimhalsa.se/$1 [R=301,L]
+
+~~~~~ redirect all subpages ~~~~~
+RewriteCond %{HTTP_HOST} ^(www\.)?epipenuk.meda-core.local$
+RewriteCond %{REQUEST_URI} ^/patients/(.*)$
+RewriteRule ^(.*)$ http://www.intimhalsa.se/patients/ [R=301,L]
