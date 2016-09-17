@@ -1,0 +1,12 @@
+%%%%% PID - task ID in console %%%%%
+
+# tags; pid, tasks, search
+
+# Write it in console to find Grunt's PID 
+
+ps aux | grep grunt
+
+# Find in table 'grunt' and it PID,
+# Write it in console to kill Grunt task
+
+kill {pid}
