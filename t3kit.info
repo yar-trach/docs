@@ -534,3 +534,51 @@ RewriteRule ^(.*)$ http://www.intimhalsa.se/$1 [R=301,L]
 RewriteCond %{HTTP_HOST} ^(www\.)?epipenuk.meda-core.local$
 RewriteCond %{REQUEST_URI} ^/patients/(.*)$
 RewriteRule ^(.*)$ http://www.intimhalsa.se/patients/ [R=301,L]
+
+
+
+
+
+
+%%%%% Adding language variables %%%%%
+
+# tags: language, variable, typoscript, setup
+
+# Add this to Setup, where "L" is ID of language.
+# Lang ID you can find in "List" 
+
+
+# Default lang
+page.10.variables {
+  header_text = TEXT
+  header_text {
+    value = -En del av Addtech koncernen
+    #value = -A PART OF ADDTECH GROUP
+    wrap = <div class="head-middle-text">|</div>
+    typolink.parameter = http://www.addtech.com/
+    typolink.wrap = <p>|</p>
+    typolink.ATagBeforeWrap = 1
+    typolink.extTarget = _blank
+  }
+}
+
+# Lang with ID = 1 (English)
+[globalVar = GP:L = 1]
+# pixelant.footer.contact.title = العنوان البريدي.
+# pixelant.footer.contact.bar.title = الزائرين.
+# pixelant.footer.contact.bar.address = Pipers väg 2A,
+
+page.10.variables {
+  header_text = TEXT
+  header_text {
+    #value = -En del av Addtech koncernen
+    value = -A PART OF ADDTECH GROUP
+    wrap = <div class="head-middle-text">|</div>
+    typolink.parameter = http://www.addtech.com/
+    typolink.wrap = <p>|</p>
+    typolink.ATagBeforeWrap = 1
+    typolink.extTarget = _blank
+  }
+}
+
+[global]
