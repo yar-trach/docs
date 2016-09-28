@@ -582,3 +582,47 @@ page.10.variables {
 }
 
 [global]
+
+
+
+
+
+%%%%% Change template of element with TypoScript %%%%%
+
+# tags: footer, elements, TS
+
+# Add this lines to Setup
+
+lib.footer.copyright = TEXT
+lib.footer.copyright {
+    data = date:U
+    strftime = %Y
+    noTrimWrap= |<p class="copyright"> © | {$themes.configuration.footer.copyright}</p>|
+}
+
+
+
+
+
+%%%%% How to translate 'Read more' button %%%%%
+
+# tags: lang, translation, setup
+
+# Add this to Setup
+
+plugin.tx_theme_t3kit._LOCAL_LANG.sv.contentElement.slider.linkText = Läs mer
+
+
+
+
+
+%%%%% Add custom classes to links in RTE %%%%%
+
+# tags: custom, class, RTE
+
+# Add this to Page TSConfig
+
+RTE.default.proc.allowedClasses := addToList(btn-border, btn-primary-background)
+RTE.default.buttons.link.properties.class.allowedClasses := addToList(btn-border, btn-primary-background)
+RTE.classes.btn-border.name = Button with border
+RTE.classes.btn-primary-background.name = Primary Button
