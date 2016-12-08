@@ -689,3 +689,36 @@ var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga
 })();
 </script>
 )
+
+
+
+
+
+%%%%% Change template of content element %%%%%
+
+# tags: template
+
+# Add this lines to Setup
+
+plugin.tx_themes.view.templateRootPaths.700 = fileadmin/templates/theme_t3kit/override/
+lib.fluidContent.templateRootPaths.1913 = fileadmin/templates/theme_t3kit/override/ContentElements
+
+
+
+
+
+%%%%% Change classes for table template %%%%%
+
+# tags: table, setup
+
+# Add this to Setup
+
+lib.parseFunc_RTE {
+    externalBlocks {
+        table.stdWrap.HTMLparser.tags.table.fixAttrib.class {
+            default = table table-hover
+            always = 1
+            list >
+        }
+    }
+}
