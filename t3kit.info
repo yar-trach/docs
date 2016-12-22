@@ -539,6 +539,27 @@ RewriteRule ^(.*)$ http://www.intimhalsa.se/patients/ [R=301,L]
 
 
 
+%%%%% How to check redirects locally %%%%%
+
+# Add sending domain locally 
+
+# Ping new site
+ping se.triolab.typo3konsult.se
+
+# Get it IP address
+64 bytes from c2938.cloudnet.se (139.162.190.251): icmp_seq=3 ttl=56 time=42.8 ms
+
+# 139.162.190.251
+
+# Go do /etc/hosts file and add this IP to hosts list
+
+139.162.190.251 triolab.se
+
+# Now it will work locally
+
+
+
+
 
 %%%%% Adding language variables %%%%%
 
