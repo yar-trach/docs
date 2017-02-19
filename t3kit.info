@@ -376,7 +376,7 @@ page {
 
 
 
-%%%%% Add custom CSS/LESS files to head %%%%%
+%%%%% Add custom.less CSS/LESS files to head %%%%%
 
 # tags: css, less, custom
 
