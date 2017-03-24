@@ -73,7 +73,7 @@ page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=
 
 >Add this lines to **Setup**
 
-```properties
+```php
 tt_content {
     imageTextLink {
         dataProcessing {
