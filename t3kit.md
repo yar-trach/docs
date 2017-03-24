@@ -91,7 +91,7 @@ tt_content {
 
 >Add this lines to **PageTS**
 
-```typoscript
+```php
 TCEFORM.tt_content.layout {
     types {
         imageTextLink {
@@ -116,7 +116,7 @@ TCEFORM.tt_content.layout {
 >* wrapper
 >* class
 
-```typoscript
+```php
 tt_content {
     gridelements_pi1.20.10.setup.Adv1ColumnGrid.cObject {
         dataProcessing {
@@ -151,7 +151,7 @@ TCEFORM.tt_content.wrapper {
 
 >Structure of flex form will be next:
 
-```
+```xml
 <T3DataStructure>
     <meta>
         <langDisable>1</langDisable>
@@ -192,7 +192,7 @@ TCEFORM.tt_content.wrapper {
 
 >And add configs to **Setup**
 
-```typoscript
+```php
 20 = T3kit\T3kitExtensionTools\DataProcessing\FlexFormProcessor
 20 {
     fieldName = pi_flexform
@@ -213,7 +213,7 @@ TCEFORM.tt_content.wrapper {
 
 >Add this to **Setup**
 
-```typoscript
+```php
 plugin.tx_themes {
     view {
         partialRootPaths {
@@ -231,7 +231,7 @@ plugin.tx_themes {
 
 >or INLINE
 
-```typoscript
+```php
 plugin.tx_themes.view.partialRootPaths.640 = fileadmin/templates/PROJECT_TITLE/Partials
 plugin.tx_themes.view.templateRootPaths.640 = fileadmin/templates/PROJECT_TITLE/Templates
 plugin.tx_themes.view.layoutRootPaths.640 = fileadmin/templates/PROJECT_TITLE/Layouts
@@ -252,7 +252,7 @@ plugin.tx_themes.view.layoutRootPaths.640 = fileadmin/templates/PROJECT_TITLE/La
 
 >Add this to **Setup**
 
-```typoscript
+```php
 plugin.tx_themes {
     view {
         layoutRootPaths{
@@ -264,7 +264,7 @@ plugin.tx_themes {
 
 >Add this lines to **Page TSConfig**
 
-```typoscript
+```php
 mod.web_layout.BackendLayouts {
     Nano {
         icon = EXT:theme_t3kit/Resources/Public/Icons/BackendLayouts/Content.svg
@@ -338,7 +338,7 @@ mod.web_layout.BackendLayouts {
 
 >Add this lines to **Page TSConfig**
 
-```typoscript
+```php
 tx_news.templateLayouts {
     NewsCarousel = News carousel
     Cards  = News as Cards
@@ -350,7 +350,7 @@ tx_news.templateLayouts {
 
 >And this to **Setup**
 
-```typoscript
+```php
 plugin.tx_news.view.partialRootPaths.2 = fileadmin/templates/News/Partials/ 
 ```
 
@@ -373,7 +373,7 @@ plugin.tx_news.view.partialRootPaths.2 = fileadmin/templates/News/Partials/
 
 >Add settings to **Setup**
 
-```typoscript
+```php
 lib.header.top {
     logo = IMAGE
     logo.file = fileadmin/custom/images/nt-cargo-logo.svg
@@ -402,7 +402,7 @@ lib.header.top {
 
 >Add this lines to **Setup**
 
-```typoscript
+```php
 page {
     includeJSFooter {
         customJs = fileadmin/custom/js/custom.js
@@ -427,7 +427,7 @@ page {
 
 >Add this lines to **Setup**
 
-```typoscript
+```php
 page {
     includeCSS {
         nanoCSS = fileadmin/custom/css/custom-nano.less
@@ -451,7 +451,7 @@ page {
 
 >Add this to **Setup** for debugging 
 
-```typoscript
+```php
 config.contentObjectExceptionHandler = 0
 ```
 
@@ -468,7 +468,7 @@ config.contentObjectExceptionHandler = 0
 
 >Add this to **Constants** (Root / Template)
 
-```typoscript
+```php
 themes.configuration.header.background = #f3ac24
 ```
 
@@ -490,7 +490,7 @@ themes.configuration.header.background = #f3ac24
 
 >Add this to **Page TSConfig** and create file page.ts in this folder
 
-```typoscript
+```php
 <INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/templates/PROJECT_TITLE/PageTS/page.ts">
 ```
 
@@ -506,7 +506,7 @@ themes.configuration.header.background = #f3ac24
 
 >Add this to **Setup**
 
-```typoscript
+```php
 plugin.tx_extname {
     _LOCAL_LANG.DEFAULT {
         someConstant = some value
@@ -516,7 +516,7 @@ plugin.tx_extname {
 
 Example
 
-```typoscript
+```php
 plugin.tx_pxanewslettersubscription {
     _LOCAL_LANG.da {
         subscribe = Tilmeld
@@ -658,7 +658,7 @@ $ ping se.triolab.typo3konsult.se
 
 >Default lang
 
-```typoscript
+```php
 page.10.variables {
     header_text = TEXT
     header_text {
@@ -673,7 +673,7 @@ page.10.variables {
 }
 ```
 
-```typoscript
+```php
 # Lang with ID = 1 (English)
 [globalVar = GP:L = 1]
 # pixelant.footer.contact.title = العنوان البريدي.
@@ -708,7 +708,7 @@ page.10.variables {
 
 >Add this lines to **Setup**
 
-```typoscript
+```php
 lib.footer.copyright = TEXT
 lib.footer.copyright {
     data = date:U
@@ -729,7 +729,7 @@ lib.footer.copyright {
 
 >Add this to **Setup**
 
-```typoscript
+```php
 plugin.tx_theme_t3kit._LOCAL_LANG.sv.contentElement.slider.linkText = Läs mer
 ```
 
@@ -745,7 +745,7 @@ plugin.tx_theme_t3kit._LOCAL_LANG.sv.contentElement.slider.linkText = Läs mer
 
 >Add this to **Page TSConfig**
 
-```typoscript
+```php
 RTE.default.proc.allowedClasses := addToList(btn-border, btn-primary-background)
 RTE.default.buttons.link.properties.class.allowedClasses := addToList(btn-border, btn-primary-background)
 RTE.classes.btn-border.name = Button with border
@@ -754,7 +754,7 @@ RTE.classes.btn-primary-background.name = Primary Button
 
 >OR
 
-```typoscript
+```php
 RTE.default{
     ignoreMainStyleOverride = 1 
     useCSS = 1
@@ -774,7 +774,7 @@ RTE.default{
 
 >OR
 
-```typoscript
+```php
 RTE {
     default {
         proc.allowedClasses >
@@ -855,7 +855,7 @@ RTE.config.tt_content.bodytext.proc.allowedClasses = btn, btn-default, infoRow
 
 >Add this to **Setup**
 
-```typoscript
+```php
 page.headerData.5364 = TEXT
 page.headerData.5364.value (
     <script type="text/javascript">
@@ -881,7 +881,7 @@ page.headerData.5364.value (
 
 >Add this lines to **Setup**
 
-```typoscript
+```php
 plugin.tx_themes.view.templateRootPaths.700 = fileadmin/templates/theme_t3kit/override/
 lib.fluidContent.templateRootPaths.1913 = fileadmin/templates/theme_t3kit/override/ContentElements
 ```
@@ -897,7 +897,7 @@ lib.fluidContent.templateRootPaths.1913 = fileadmin/templates/theme_t3kit/overri
 
 >Add this to **Setup**
 
-```typoscript
+```php
 lib.parseFunc_RTE {
     externalBlocks {
         table.stdWrap.HTMLparser.tags.table.fixAttrib.class {
@@ -920,13 +920,13 @@ lib.parseFunc_RTE {
 
 >Add constant variable to **Constants**
 
-```typoscript
+```php
 themes.configuration.features.companySelector = 632
 ```
 
 >Add TypoScript to **Setup** for overriding
 
-```typoscript
+```php
 lib.menu.main {
     1 {
         NO {
@@ -964,13 +964,13 @@ lib.menu.main {
 
 >Add this to **Setup**
 
-```typoscript
+```php
 lib.fluidContent.templateRootPaths.1920 = fileadmin/templates/theme_t3kit/Resources/Private/Templates/FluidStyledContent
 ```
 
 >Add this to **Constants**
 
-```typoscript
+```php
 lib.menu.language.standard.templateName = LanguageMenuDropdown
 ```
 
