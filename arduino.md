@@ -2,27 +2,27 @@
 
 > Enter this in console ONCE
 
-***
+```
 > $ sudo usermod -a -G dialout <username>
-***
+```
 
 > Type it in **console**
 
-***
+```
 $ sudo usermod -a -G dialout rozmathplus
-***
+```
 
 > And this 
 
-***
+```
 > $ sudo chmod a+rw /dev/ttyACM<**number**>
-***
+```
 
 > Type it in **console**
 
-***
+```
 $ sudo chmod a+rw /dev/ttyACM0
-***
+```
 
 
 
