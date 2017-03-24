@@ -573,8 +573,9 @@ plugin.tx_pxanewslettersubscription {
 >* htaccess
 >* redirects
 
+>http://htaccess.madewithlove.be/
+
 ```htaccess
-http://htaccess.madewithlove.be/
 RewriteCond %{HTTP_HOST} ^(www\.)?meda.dk$
 RewriteCond %{REQUEST_URI} ^/sundhedspersonale/
 RewriteRule ^(.*)$ http://www.medainfo.dk/$1 [R=301,L]
