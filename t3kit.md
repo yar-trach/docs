@@ -1,9 +1,12 @@
 # CONSTANTS
 
-Setup                   :   "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts"
-PageTS                  :   "fileadmin/templates/Configuration/PageTS/FluidContent.pagets"
-Library folder          :   "typo3conf/ext/theme_t3kit/Configuration/TypoScript/Library/lib.fluidContent.setupts"
-Default elements folder :   "typo3/sysext/fluid\_styled_content/Configuration/TypoScript/Static/setup.txt"
+>Setup                   :   "fileadmin/templates/Configuration/TypoScript/lib.fluidContent.setupts"
+
+>PageTS                  :   "fileadmin/templates/Configuration/PageTS/FluidContent.pagets"
+
+>Library folder          :   "typo3conf/ext/theme_t3kit/Configuration/TypoScript/Library/lib.fluidContent.setupts"
+
+>Default elements folder :   "typo3/sysext/fluid_styled_content/Configuration/TypoScript/Static/setup.txt"
 
 
 
@@ -11,9 +14,9 @@ Default elements folder :   "typo3/sysext/fluid\_styled_content/Configuration/Ty
 
 # Change viewport
 
-Add this lines to **Setup** 
+>Add this lines to **Setup** 
 
-***TypoScript
+```typoscript
 page.meta >
 page.meta {
 
@@ -27,7 +30,7 @@ page.meta {
     format-detection = telephone=no
 
 }
-***
+```
 
 
 
@@ -35,12 +38,12 @@ page.meta {
 
 # Add fonts
 
-Add this lines to **Setup**
+>Add this lines to **Setup**
 
-***TypoScript
-page.headerData.**231** = TEXT 
-page.headerData.**231**.value = <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
-***
+```typoscript
+page.headerData.231 = TEXT 
+page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+```
 
 
 
@@ -48,7 +51,7 @@ page.headerData.**231**.value = <link href="https://fonts.googleapis.com/css?fam
 
 # Overwrite fonts set
 
-To overwrite fonts you need to use **Add fonts** section, but instead **231** var use **186**
+>To overwrite fonts you need to use **Add fonts** section, but instead **231** var use **186**
 
 
 
@@ -56,27 +59,25 @@ To overwrite fonts you need to use **Add fonts** section, but instead **231** va
 
 # Add custom layout/wrapper class to element
 
-tags:
+>* wrapper
+>* layout
+>* class
 
-* wrapper
-* layout
-* class
+>options:
 
-options:
+>* 1910 = layout
+>* 365 = wrapper
+>* 395 = aligning
+>* 375 = margin-top
+>* 385 = margin-bottom
 
-* 1910 = layout
-* 365 = wrapper
-* 395 = aligning
-* 375 = margin-top
-* 385 = margin-bottom
+>Add this lines to **Setup**
 
-Add this lines to **Setup**
-
-***TypoScript
+```typoscript
 tt_content {
-    **imageTextLink** {
+    imageTextLink {
         dataProcessing {
-            **1910** {
+            1910 {
                 classMappings {
                     1001 = colored-background _color-1
                     1002 = colored-background _color-2
@@ -86,14 +87,14 @@ tt_content {
         }
     }
 }
-***
+```
 
-Add this lines to **PageTS**
+>Add this lines to **PageTS**
 
-***TypoScript
-TCEFORM.tt_content.**layout** {
+```typoscript
+TCEFORM.tt_content.layout {
     types {
-        **imageTextLink** {
+        imageTextLink {
             addItems {
                 --div-- = ImageTextLink layouts:
                 1001 = Colored background. Color-1
@@ -103,7 +104,7 @@ TCEFORM.tt_content.**layout** {
         }
     }
 }
-***
+```
 
 
 
@@ -111,17 +112,15 @@ TCEFORM.tt_content.**layout** {
 
 # Adding custom wrappers for grid elements
 
-tags:
+>* grid
+>* wrapper
+>* class
 
-* grid
-* wrapper
-* class
-
-***TypoScript
+```typoscript
 tt_content {
-    gridelements_pi1.20.10.setup.**Adv1ColumnGrid**.cObject {
+    gridelements_pi1.20.10.setup.Adv1ColumnGrid.cObject {
         dataProcessing {
-            **365** {
+            365 {
                 classMappings {
                     1001 = colored-background _color-1
                 }
@@ -130,17 +129,17 @@ tt_content {
     }
 }
 
-TCEFORM.tt_content.**wrapper** {
-   types {
-       **gridelements_pi1** {
-           # Based on that the default items still exists.
-           addItems {
+TCEFORM.tt_content.wrapper {
+    types {
+        gridelements_pi1 {
+            # Based on that the default items still exists.
+            addItems {
                 1001 = Colored background. Color-1
-           }
-       }
-   }
+            }
+        }
+    }
 }
-***
+```
 
 
 
@@ -148,10 +147,11 @@ TCEFORM.tt_content.**wrapper** {
 
 # Add color picker
 
-To add color picker to element you need to create flex form.
-Structure of flex form will be next:
+>To add color picker to element you need to create flex form.
 
-***
+>Structure of flex form will be next:
+
+```
 <T3DataStructure>
     <meta>
         <langDisable>1</langDisable>
@@ -166,7 +166,7 @@ Structure of flex form will be next:
                 <el>
                     <color>
                         <TCEforms>
-                        <label>LLL:fileadmin/templates/theme\_t3kit/custom\_content_elements/Resources/Private/Language/CustomContentElements.xlf:nextButton.color</label>
+                        <label>LLL:fileadmin/templates/theme_t3kit/custom_content_elements/Resources/Private/Language/CustomContentElements.xlf:nextButton.color</label>
                         <config>
                             <type>input</type>
                             <size>10</size>
@@ -188,17 +188,17 @@ Structure of flex form will be next:
         </sDEF>
     </sheets>
 </T3DataStructure>
-***
+```
 
-And add configs to **Setup**
+>And add configs to **Setup**
 
-***TypoScript
+```typoscript
 20 = T3kit\T3kitExtensionTools\DataProcessing\FlexFormProcessor
 20 {
     fieldName = pi_flexform
     as = settings
 }
-***
+```
 
 
 
@@ -206,43 +206,40 @@ And add configs to **Setup**
 
 # Adding/updating templates and partials
 
-tags:
+>* partials
+>* templates
+>* layouts
+>* header
 
-* partials
-* templates
-* layouts
-* header
+>Add this to **Setup**
 
-Add this to **Setup**
-
-***TypoScript
-plugin.**tx_themes** {
+```typoscript
+plugin.tx_themes {
     view {
         partialRootPaths {
-            640 = fileadmin/templates/*PROJECT_TITLE*/Partials/
+            640 = fileadmin/templates/PROJECT_TITLE/Partials/
         }
         templateRootPaths{
-            640 = fileadmin/templates/*PROJECT_TITLE*/Templates/
+            640 = fileadmin/templates/PROJECT_TITLE/Templates/
         }
         layoutRootPaths{
-            640 = fileadmin/templates/*PROJECT_TITLE*/Layouts/
+            640 = fileadmin/templates/PROJECT_TITLE/Layouts/
         }
     }
 }
-***
+```
 
-or INLINE
+>or INLINE
 
-***TypoScript
-plugin.tx\_themes.view.partialRootPaths.640 = fileadmin/templates/*PROJECT_TITLE*/Partials
-plugin.tx\_themes.view.templateRootPaths.640 = fileadmin/templates/*PROJECT_TITLE*/Templates
-plugin.tx\_themes.view.layoutRootPaths.640 = fileadmin/templates/*PROJECT_TITLE*/Layouts
-***
+```typoscript
+plugin.tx_themes.view.partialRootPaths.640 = fileadmin/templates/PROJECT_TITLE/Partials
+plugin.tx_themes.view.templateRootPaths.640 = fileadmin/templates/PROJECT_TITLE/Templates
+plugin.tx_themes.view.layoutRootPaths.640 = fileadmin/templates/PROJECT_TITLE/Layouts
+```
 
-Structure should be same like in t3kit_theme
-f.e.:
+>Structure should be same like in t3kit_theme f.e.:
 
-/*PROJECT_TITLE*/Partials/Header/Header.html
+>/**PROJECT_TITLE**/Partials/Header/Header.html
 
 
 
@@ -250,26 +247,24 @@ f.e.:
 
 # Adding layouts BE
 
-tags:
+>* layouts
+>* BE
 
-* layouts
-* BE
+>Add this to **Setup**
 
-Add this to **Setup**
-
-***TypoScript
-plugin.**tx_themes** {
+```typoscript
+plugin.tx_themes {
     view {
         layoutRootPaths{
-            640 = fileadmin/templates/*PROJECT_TITLE*/Layouts/
+            640 = fileadmin/templates/PROJECT_TITLE/Layouts/
         }
     }
 }
-***
+```
 
-Add this lines to **Page TSConfig**
+>Add this lines to **Page TSConfig**
 
-***TypoScript
+```typoscript
 mod.web_layout.BackendLayouts {
     Nano {
         icon = EXT:theme_t3kit/Resources/Public/Icons/BackendLayouts/Content.svg
@@ -283,7 +278,7 @@ mod.web_layout.BackendLayouts {
                     1 {
                         columns {
                             1 {
-                                name = LLL:EXT:theme\_t3kit/Resources/Private/Language/BackendLayouts.xlf:area_content
+                                name = LLL:EXT:theme_t3kit/Resources/Private/Language/BackendLayouts.xlf:area_content
                                 rowspan = 1
                                 colPos = 0
                             }
@@ -292,7 +287,7 @@ mod.web_layout.BackendLayouts {
                     2 {
                         columns {
                             1 {
-                                name = LLL:EXT:theme\_t3kit/Resources/Private/Language/BackendLayouts.xlf:area_elements
+                                name = LLL:EXT:theme_t3kit/Resources/Private/Language/BackendLayouts.xlf:area_elements
                                 rowspan = 1
                                 colPos = 4
                             }
@@ -303,20 +298,21 @@ mod.web_layout.BackendLayouts {
         }
     }
 }
-***
+```
 
-Create Nano.html in fileadmin/templates/*PROJECT_TITLE*/Layouts/
+>Create **Nano.html** in fileadmin/templates/**PROJECT_TITLE**/Layouts/
 
-***html
+```html
 <!-- theme_t3kit: Layouts/Nano.html [begin] -->
 <f:render section="Default"/>
 <!-- theme_t3kit: Layouts/Nano.html [end] -->
-***
+```
 
-Create fileadmin/templates/*PROJECT_TITLE*/Templates/Theme/ folder
-Create Nano.html here
+>Create fileadmin/templates/**PROJECT_TITLE**/Templates/Theme/ folder
 
-***html
+>Create **Nano.html** here
+
+```html
 <div xmlns="http://www.w3.org/1999/xhtml" lang="en" xmlns:f="http://typo3.org/ns/fluid/ViewHelpers">
     <f:layout name="Nano" />
     <f:section name="Default">
@@ -327,7 +323,7 @@ Create Nano.html here
     <!-- theme_t3kit: Templates/Theme/Nano.html [end] -->
     </f:section>
 </div>
-***
+```
 
 
 
@@ -335,18 +331,14 @@ Create Nano.html here
 
 # Adding templates for News extantion
 
-tags:
+>* news
+>* templates
 
-* news
-* templates
+>Copy all templates to new folder and add custom templates /fileadmin/templates/News/Partials/List
 
-Copy all templates to new folder and add custom templates
-/fileadmin/templates/News/Partials/List
+>Add this lines to **Page TSConfig**
 
-
-Add this lines to **Page TSConfig**
-
-***TypoScript
+```typoscript
 tx_news.templateLayouts {
     NewsCarousel = News carousel
     Cards  = News as Cards
@@ -354,13 +346,13 @@ tx_news.templateLayouts {
     Timeline = News list with timeline
     AntroList = News Antroposofi List
 }
-***
+```
 
-And this to **Setup**
+>And this to **Setup**
 
-***TypoScript
+```typoscript
 plugin.tx_news.view.partialRootPaths.2 = fileadmin/templates/News/Partials/ 
-***
+```
 
 
 
@@ -368,19 +360,20 @@ plugin.tx_news.view.partialRootPaths.2 = fileadmin/templates/News/Partials/
 
 # Setting elements to partials
 
-Add logo to header (custom place)
-Add wrapper to partial
+>Add logo to header (custom place)
 
-***html
+>Add wrapper to partial
+
+```html
 <div class="header-top__sub-logo">
     <f:cObject typoscriptObjectPath="lib.header.top.text" />
     <f:cObject typoscriptObjectPath="lib.header.top.logo" />
 </div>
-***
+```
 
-Add settings to **Setup**
+>Add settings to **Setup**
 
-***TypoScript
+```typoscript
 lib.header.top {
     logo = IMAGE
     logo.file = fileadmin/custom/images/nt-cargo-logo.svg
@@ -397,7 +390,7 @@ lib.header.top {
         }
     }
 }
-***
+```
 
 
 
@@ -405,10 +398,11 @@ lib.header.top {
 
 # Include custom.js
 
-custom.js is disabled by default, but it could be enabled if it needed
-Add this lines to **Setup**
+>custom.js is disabled by default, but it could be enabled if it needed
 
-***TypoScript
+>Add this lines to **Setup**
+
+```typoscript
 page {
     includeJSFooter {
         customJs = fileadmin/custom/js/custom.js
@@ -419,7 +413,7 @@ page {
         }
     }
 }
-***
+```
 
 
 
@@ -427,15 +421,13 @@ page {
 
 # Add custom.less CSS/LESS files to head
 
-tags:
+>* css
+>* less
+>* custom
 
-* css
-* less
-* custom
+>Add this lines to **Setup**
 
-Add this lines to **Setup**
-
-***TypoScript
+```typoscript
 page {
     includeCSS {
         nanoCSS = fileadmin/custom/css/custom-nano.less
@@ -446,7 +438,7 @@ page {
         }
     }
 }
-***
+```
 
 
 
@@ -454,16 +446,14 @@ page {
 
 # Debugging
 
-tags:
+>* debug
+>* setup
 
-* debug
-* setup
+>Add this to **Setup** for debugging 
 
-Add this to **Setup** for debugging 
-
-***TypoScript
+```typoscript
 config.contentObjectExceptionHandler = 0
-***
+```
 
 
 
@@ -471,25 +461,24 @@ config.contentObjectExceptionHandler = 0
 
 # Adding custom variables (constants)
 
-tags:
+>* custom
+>* constants
+>* variables
+>* theme
 
-* custom
-* constants
-* variables
-* theme
+>Add this to **Constants** (Root / Template)
 
-Add this to **Constants** (Root / Template)
-
-***TypoScript
+```typoscript
 themes.configuration.header.background = #f3ac24
-***
+```
 
-How to get constant:
-use this constant with curly braces
+>How to get constant:
 
-***html
+>Use this constant with curly braces
+
+```html
 {theme:constant(constant:'themes.configuration.header.background')}
-***
+```
 
 
 
@@ -497,15 +486,13 @@ use this constant with curly braces
 
 # Page TSConfig in file
 
-tags:
+>* TSConfig
 
-* TSConfig
+>Add this to **Page TSConfig** and create file page.ts in this folder
 
-Add this to **Page TSConfig** anf create file page.ts in this folder
-
-***TypoScript
-<INCLUDE\_TYPOSCRIPT: source="FILE:fileadmin/templates/PROJECT_TITLE/PageTS/page.ts">
-***
+```typoscript
+<INCLUDE_TYPOSCRIPT: source="FILE:fileadmin/templates/PROJECT_TITLE/PageTS/page.ts">
+```
 
 
 
@@ -513,27 +500,25 @@ Add this to **Page TSConfig** anf create file page.ts in this folder
 
 # How to add/change language constants
 
-tags:
+>* constants
+>* language
+>* setup
 
-* constants
-* language
-* setup
+>Add this to **Setup**
 
-Add this to **Setup**
-
-***TypoScript
-plugin.**tx_extname** {
-    \_LOCAL_LANG.**DEFAULT** {
+```typoscript
+plugin.tx_extname {
+    _LOCAL_LANG.DEFAULT {
         someConstant = some value
     }
 }
-***
+```
 
 Example
 
-***TypoScript
-plugin.**tx_pxanewslettersubscription** {
-    \_LOCAL_LANG.**da** {
+```typoscript
+plugin.tx_pxanewslettersubscription {
+    _LOCAL_LANG.da {
         subscribe = Tilmeld
     }
 }
@@ -544,15 +529,13 @@ plugin.**tx_pxanewslettersubscription** {
 
 # Fluid variables
 
-tags:
+>* var
+>* custom
+>* fluid
 
-* var
-* custom
-* fluid
+>Add this to template/partial (html)
 
-Add this to template/partial (html)
-
-***html
+```html
 <v:variable.set name="count" value="{product.attributeValues -> f:count()}" />
 <f:if condition="{settings.includeSkuInAttributeListing}">
     <f:then>
@@ -571,15 +554,15 @@ Add this to template/partial (html)
 <f:if condition="{mod} != 0">
     <v:variable.set name="addLine" value="1" />
 </f:if>
-***
+```
 
-Use "addLine" variable later
+>Use "addLine" variable later
 
-***html
+```html
 <f:if condition="{addLine}">
     <tr><th>&nbsp;</th><td></td></tr>
 </f:if>
-***
+```
 
 
 
@@ -587,12 +570,10 @@ Use "addLine" variable later
 
 # HTACCESS redirects
 
-tags:
+>* htaccess
+>* redirects
 
-* htaccess
-* redirects
-
-***htaccess
+```htaccess
 http://htaccess.madewithlove.be/
 RewriteCond %{HTTP_HOST} ^(www\.)?meda.dk$
 RewriteCond %{REQUEST_URI} ^/sundhedspersonale/
@@ -625,7 +606,7 @@ RewriteRule ^(.*)$ http://www.intimhalsa.se/$1 [R=301,L]
 RewriteCond %{HTTP_HOST} ^(www\.)?epipenuk.meda-core.local$
 RewriteCond %{REQUEST_URI} ^/patients/(.*)$
 RewriteRule ^(.*)$ http://www.intimhalsa.se/patients/ [R=301,L]
-***
+```
 
 
 
@@ -633,29 +614,31 @@ RewriteRule ^(.*)$ http://www.intimhalsa.se/patients/ [R=301,L]
 
 # How to check redirects locally
 
-Add sending domain locally 
+>Add sending domain locally 
 
-Ping new site
+>Ping new site
 
-***console
+```console
 $ ping se.triolab.typo3konsult.se
-***
+```
 
-Get it IP address
+>Get it IP address
 
-***console
+>Result:
+
+```console
 64 bytes from c2938.cloudnet.se (139.162.190.251): icmp_seq=3 ttl=56 time=42.8 ms
 
 139.162.190.251
-***
+```
 
-Go do /etc/hosts file and add this IP to hosts list
+>Go do /etc/hosts file and add this IP to hosts list
 
-***console
+```console
 139.162.190.251 triolab.se
-***
+```
 
-Now it will work locally
+>Now it will work locally
 
 
 
@@ -663,19 +646,18 @@ Now it will work locally
 
 # Adding language variables
 
-tags:
+>* language
+>* variable
+>* typoscript
+>* setup
 
-* language
-* variable
-* typoscript
-* setup
+>Add this to **Setup**, where "**L**" is ID of language.
 
-Add this to **Setup**, where "L" is ID of language.
-Lang ID you can find in "List" 
+>Lang ID you can find in "List" 
 
-Default lang
+>Default lang
 
-***TypoScript
+```typoscript
 page.10.variables {
     header_text = TEXT
     header_text {
@@ -688,14 +670,14 @@ page.10.variables {
         typolink.extTarget = _blank
     }
 }
-***
+```
 
-***TypoScript
-\# Lang with ID = 1 (English)
+```typoscript
+# Lang with ID = 1 (English)
 [globalVar = GP:L = 1]
-\# pixelant.footer.contact.title = العنوان البريدي.
-\# pixelant.footer.contact.bar.title = الزائرين.
-\# pixelant.footer.contact.bar.address = Pipers väg 2A,
+# pixelant.footer.contact.title = العنوان البريدي.
+# pixelant.footer.contact.bar.title = الزائرين.
+# pixelant.footer.contact.bar.address = Pipers väg 2A,
 
 page.10.variables {
     header_text = TEXT
@@ -711,7 +693,7 @@ page.10.variables {
 }
 
 [global]
-***
+```
 
 
 
@@ -719,22 +701,20 @@ page.10.variables {
 
 # Change template of element with TypoScript
 
-tags:
+>* footer
+>* elements
+>* TS
 
-* footer
-* elements
-* TS
+>Add this lines to **Setup**
 
-Add this lines to **Setup**
-
-***TypoScript
+```typoscript
 lib.footer.copyright = TEXT
 lib.footer.copyright {
     data = date:U
     strftime = %Y
     noTrimWrap= |<p class="copyright"> © | {$themes.configuration.footer.copyright}</p>|
 }
-***
+```
 
 
 
@@ -742,17 +722,15 @@ lib.footer.copyright {
 
 # How to translate 'Read more' button
 
-tags:
+>* lang
+>* translation
+>* setup
 
-* lang
-* translation
-* setup
+>Add this to **Setup**
 
-Add this to **Setup**
-
-***TypoScript
-plugin.tx\_theme\_t3kit.\_LOCAL_LANG.sv.contentElement.slider.linkText = Läs mer
-***
+```typoscript
+plugin.tx_theme_t3kit._LOCAL_LANG.sv.contentElement.slider.linkText = Läs mer
+```
 
 
 
@@ -760,24 +738,22 @@ plugin.tx\_theme\_t3kit.\_LOCAL_LANG.sv.contentElement.slider.linkText = Läs me
 
 # Add custom classes to links in RTE
 
-tags:
+>* custom
+>* class
+>* RTE
 
-* custom
-* class
-* RTE
+>Add this to **Page TSConfig**
 
-Add this to **Page TSConfig**
-
-***TypoScript
+```typoscript
 RTE.default.proc.allowedClasses := addToList(btn-border, btn-primary-background)
 RTE.default.buttons.link.properties.class.allowedClasses := addToList(btn-border, btn-primary-background)
 RTE.classes.btn-border.name = Button with border
 RTE.classes.btn-primary-background.name = Primary Button
-***
+```
 
-OR
+>OR
 
-***TypoScript
+```typoscript
 RTE.default{
     ignoreMainStyleOverride = 1 
     useCSS = 1
@@ -793,11 +769,11 @@ RTE.default{
     }
     proc.allowedClasses := addToList(youtube-vintage, fb-vintage, www-vintage)
 }
-***
+```
 
-OR
+>OR
 
-***TypoScript
+```typoscript
 RTE {
     default {
         proc.allowedClasses >
@@ -821,7 +797,7 @@ RTE.default.FE < RTE.default
 RTE.default.FE.FE >
 RTE.config.tt_content.bodytext
 RTE.config.tt_content.bodytext.proc.allowedClasses = btn, btn-default, infoRow
-***
+```
 
 
 
@@ -829,14 +805,12 @@ RTE.config.tt_content.bodytext.proc.allowedClasses = btn, btn-default, infoRow
 
 # Add second link to element
 
-tags:
+>* flexform
+>* link
 
-* flexform
-* link
+>Add to/create flexform for element you want to add custom (second) link
 
-Add to/create flexform for element you want to add custom (second) link
-
-***html
+```html
 <link2>
     <TCEforms>
         <label>Link</label>
@@ -864,9 +838,9 @@ Add to/create flexform for element you want to add custom (second) link
         </config>
     </TCEforms>
 </link2>
-***
+```
 
-You will get 'link2' var with link
+>You will get 'link2' var with link
 
 
 
@@ -874,15 +848,13 @@ You will get 'link2' var with link
 
 # Google analiticts
 
-tags:
+>* google
+>* analiticts
+>* Setup
 
-* google
-* analiticts
-* Setup
+>Add this to **Setup**
 
-Add this to **Setup**
-
-***TypoScript
+```typoscript
 page.headerData.5364 = TEXT
 page.headerData.5364.value (
     <script type="text/javascript">
@@ -896,7 +868,7 @@ page.headerData.5364.value (
         })();
     </script>
 )
-***
+```
 
 
 
@@ -904,16 +876,14 @@ page.headerData.5364.value (
 
 # Change template of content element
 
-tags:
+>* template
 
-* template
+>Add this lines to **Setup**
 
-Add this lines to **Setup**
-
-***TypoScript
-plugin.tx\_themes.view.templateRootPaths.700 = fileadmin/templates/theme_t3kit/override/
+```typoscript
+plugin.tx_themes.view.templateRootPaths.700 = fileadmin/templates/theme_t3kit/override/
 lib.fluidContent.templateRootPaths.1913 = fileadmin/templates/theme_t3kit/override/ContentElements
-***
+```
 
 
 
@@ -921,14 +891,12 @@ lib.fluidContent.templateRootPaths.1913 = fileadmin/templates/theme_t3kit/overri
 
 # Change classes for table template
 
-tags:
+>* table
+>* setup
 
-* table
-* setup
+>Add this to **Setup**
 
-Add this to **Setup**
-
-***TypoScript
+```typoscript
 lib.parseFunc_RTE {
     externalBlocks {
         table.stdWrap.HTMLparser.tags.table.fixAttrib.class {
@@ -938,7 +906,7 @@ lib.parseFunc_RTE {
         }
     }
 }
-***
+```
 
 
 
@@ -946,20 +914,18 @@ lib.parseFunc_RTE {
 
 # Overriding template for element by selector
 
-tags:
+>* constants
+>* Setup
 
-* constants
-* Setup
+>Add constant variable to **Constants**
 
-Add constant variable to **Constants**
-
-***TypoScript
+```typoscript
 themes.configuration.features.companySelector = 632
-***
+```
 
-Add TypoScript to **Setup** for overriding
+>Add TypoScript to **Setup** for overriding
 
-***TypoScript
+```typoscript
 lib.menu.main {
     1 {
         NO {
@@ -987,7 +953,7 @@ lib.menu.main {
         }
     }
 }
-***
+```
 
 
 
@@ -995,23 +961,23 @@ lib.menu.main {
 
 # Overriding default language menu
 
-Add this to **Setup**
+>Add this to **Setup**
 
-***TypoScript
+```typoscript
 lib.fluidContent.templateRootPaths.1920 = fileadmin/templates/theme_t3kit/Resources/Private/Templates/FluidStyledContent
-***
+```
 
-Add this to **Constants**
+>Add this to **Constants**
 
-***TypoScript
+```typoscript
 lib.menu.language.standard.templateName = LanguageMenuDropdown
-***
+```
 
-Create LanguageMenuDropdown.html file with template located:
+>Create **LanguageMenuDropdown.html** file with template located:
 
-./templates/theme_t3kit/Resources/Private/Templates/FluidStyledContent/LanguageMenuDropdown.html
+>./templates/theme_t3kit/Resources/Private/Templates/FluidStyledContent/**LanguageMenuDropdown.html**
 
-***html
+```html
 <f:if condition="{languages}">
     <div class="header-top__language-menu">
         <f:for each="{languages}" as="language">
@@ -1033,4 +999,4 @@ Create LanguageMenuDropdown.html file with template located:
         </div>
     </div>
 </f:if>
-***
+```
