@@ -12,7 +12,7 @@ $ ps aux | grep grunt
 
 >Find in table 'grunt' and it PID, write it in console to kill Grunt task
 
->$ kill **<pid>**
+>$ kill **<\pid>**
 
 
 
@@ -28,7 +28,7 @@ $ ps aux | grep grunt
 
 >Run in terminal 
 
->$ sdptool browse **<MAC address>**
+>$ sdptool browse **<\MAC ADDRESS>**
 
 >Result:
 
