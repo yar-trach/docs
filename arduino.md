@@ -6,17 +6,17 @@ Enter this in console once
 $ sudo usermod -a -G dialout <username>
 ***
 
-***git
+***
 $ sudo usermod -a -G dialout rozmathplus
 ***
 
 And this 
 
-***git
+***
 $ sudo chmod a+rw /dev/ttyACM<number>
 ***
 
-***git
+***
 $ sudo chmod a+rw /dev/ttyACM0
 ***
 
@@ -33,7 +33,7 @@ If you are connecting to an Android Wear device, turn off Bluetooth on the phone
 Connect the device to the host computer with a USB cable.
 Set the target device to listen for a TCP/IP connection on port 5555.
 
-***git
+***
 adb tcpip 5555
 ***
 
@@ -41,13 +41,13 @@ Disconnect the USB cable from the target device.
 Find the IP address of the Android device. For example, on a Nexus device, you can find the IP address at Settings > About tablet (or About phone) > Status > IP address. Or, on an Android Wear device, you can find the IP address at Settings > Wi-Fi Settings > Advanced > IP address.
 Connect to the device by its IP address.
 
-***git
+***
 adb connect *device_ip_address*
 ***
 
 Confirm that your host computer is connected to the target device:
 
-***git
+***
 $ adb devices
 
 List of devices attached
