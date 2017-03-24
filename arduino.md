@@ -2,7 +2,7 @@
 
 Enter this in console once
 
-***git
+***
 $ sudo usermod -a -G dialout <username>
 ***
 
