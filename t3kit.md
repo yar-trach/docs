@@ -16,7 +16,7 @@
 
 >Add this lines to **Setup** 
 
-```js
+```objectivec
 page.meta >
 page.meta {
 
