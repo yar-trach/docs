@@ -16,7 +16,7 @@
 
 >Add this lines to **Setup** 
 
-```php
+```postscript
 page.meta >
 page.meta {
 
