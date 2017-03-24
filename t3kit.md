@@ -16,7 +16,7 @@
 
 >Add this lines to **Setup** 
 
-```postscript
+```properties
 page.meta >
 page.meta {
 
