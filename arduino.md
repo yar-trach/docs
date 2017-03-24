@@ -2,9 +2,9 @@
 
 >Enter this in console ONCE
 
->$ sudo usermod -a -G dialout <username>
+>$ sudo usermod -a -G dialout <**username**>
 
->Type it in **console**
+>Run in **terminal**:
 
 ```console
 $ sudo usermod -a -G dialout rozmathplus
@@ -12,9 +12,9 @@ $ sudo usermod -a -G dialout rozmathplus
 
 >And this 
 
->$ sudo chmod a+rw /dev/ttyACM**<number>**
+>$ sudo chmod a+rw /dev/ttyACM<**number**>
 
->Type it in **console**
+>Run in **terminal**:
 
 ```console
 $ sudo chmod a+rw /dev/ttyACM0
@@ -46,7 +46,7 @@ $ adb tcpip 5555
 
 >Connect to the device by its IP address by
 
->$ adb connect **device_ip_address**
+>$ adb connect <**device_ip_address**>
 
 >Confirm that your host computer is connected to the target device:
 
@@ -58,4 +58,4 @@ $ adb devices
 
 >List of devices attached
 
->**device_ip_address**:5555 **device**
+><**device_ip_address**>:5555 <**device**>

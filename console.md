@@ -4,7 +4,7 @@
 >* tasks
 >* search
 
->Write it in console to find Grunt's PID 
+>Run in **terminal** to find Grunt's PID:
 
 ```console
 $ ps aux | grep grunt
@@ -12,7 +12,7 @@ $ ps aux | grep grunt
 
 >Find in table 'grunt' and it PID, write it in console to kill Grunt task
 
->$ kill **<\pid>**
+>$ kill <**pid**>
 
 
 
@@ -26,9 +26,9 @@ $ ps aux | grep grunt
 
 >Problem with connecting to BT speaker UEBOOM
 
->Run in terminal 
+>Run in **terminal**:
 
->$ sdptool browse **<\MAC ADDRESS>**
+>$ sdptool browse <**MAC ADDRESS**>
 
 >Result:
 
