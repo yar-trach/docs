@@ -16,7 +16,7 @@
 
 >Add this lines to **Setup** 
 
-```perl
+```php
 page.meta >
 page.meta {
 
@@ -40,7 +40,7 @@ page.meta {
 
 >Add this lines to **Setup**
 
-```typoscript
+```php
 page.headerData.231 = TEXT 
 page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
 ```
