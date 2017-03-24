@@ -1,6 +1,6 @@
 # Can't open device 'COM'
 
-Enter this in console once
+> Enter this in console once
 
 ***
 $ sudo usermod -a -G dialout <username>

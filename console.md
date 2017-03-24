@@ -23,7 +23,7 @@ kill <pid>
 
 
 
-# Find and connect to Bluetooth device %%%%%
+# Find and connect to Bluetooth device
 
 tags:
 
