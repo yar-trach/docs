@@ -811,7 +811,7 @@ RTE.config.tt_content.bodytext.proc.allowedClasses = btn, btn-default, infoRow
 
 >Add to/create flexform for element you want to add custom (second) link
 
-```html
+```xml
 <link2>
     <TCEforms>
         <label>Link</label>
