@@ -855,7 +855,7 @@ RTE.config.tt_content.bodytext.proc.allowedClasses = btn, btn-default, infoRow
 
 >Add this to **Setup**
 
-```js
+```php
 page.headerData.5364 = TEXT
 page.headerData.5364.value (
     <script type="text/javascript">
