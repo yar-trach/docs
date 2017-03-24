@@ -30,13 +30,15 @@ $ ps aux | grep grunt
 
 >$ sdptool browse **<MAC address>**
 
+>Result:
+
 >UEBOOM MAC is 88:C6:26:07:3F:3C
 
 ```console
 $ sdptool browse 88:C6:26:07:3F:3C
 ```
 
->Results in console:
+>Result:
 
 >Browsing 88:C6:26:07:3F:3C ...
 
