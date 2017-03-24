@@ -1,20 +1,24 @@
 # Can't open device 'COM'
 
-> Enter this in console once
+> Enter this in console ONCE
 
 ***
-$ sudo usermod -a -G dialout <username>
+> $ sudo usermod -a -G dialout <username>
 ***
+
+> Type it in **console**
 
 ***
 $ sudo usermod -a -G dialout rozmathplus
 ***
 
-And this 
+> And this 
 
 ***
-$ sudo chmod a+rw /dev/ttyACM<number>
+> $ sudo chmod a+rw /dev/ttyACM<**number**>
 ***
+
+> Type it in **console**
 
 ***
 $ sudo chmod a+rw /dev/ttyACM0
