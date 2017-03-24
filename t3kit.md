@@ -522,7 +522,7 @@ plugin.tx_pxanewslettersubscription {
         subscribe = Tilmeld
     }
 }
-
+```
 
 
 
