@@ -16,7 +16,7 @@
 
 >Add this lines to **Setup** 
 
-```typoscript
+```js
 page.meta >
 page.meta {
 
