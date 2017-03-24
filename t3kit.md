@@ -16,7 +16,7 @@
 
 >Add this lines to **Setup** 
 
-```objectivec
+```perl
 page.meta >
 page.meta {
 
