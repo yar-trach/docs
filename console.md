@@ -1,6 +1,5 @@
 # PID - task ID in console
 
-> tags:
 > * pid
 > * tasks
 > * search
@@ -24,11 +23,9 @@ kill <pid>
 
 # Find and connect to Bluetooth device
 
-tags:
-
-* bluetooth
-* ueboom
-* speaker
+>* bluetooth
+>* ueboom
+>* speaker
 
 Problem with connecting to BT speaker UEBOOM
 Run in terminal "sdptool browse <MAC address>"
