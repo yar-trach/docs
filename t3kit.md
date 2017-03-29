@@ -527,6 +527,53 @@ plugin.tx_pxanewslettersubscription {
 
 
 
+
+# Setting up default languages
+
+>* constants
+>* language
+>* setup
+
+>Add this to **Setup**
+
+```php
+themes.languages.default.flag = <**flag**>
+themes.languages.default.isoCode = <**iso_lang_code**>
+themes.languages.default.isoCodeShort = <**iso_lang_code_short**>
+themes.languages.default.label = <**lang_label**>
+```
+
+### Swedish
+
+```php
+themes.languages.default.flag = se
+themes.languages.default.isoCode = sv_SE
+themes.languages.default.isoCodeShort = sv
+themes.languages.default.label = Svenska
+```
+
+### English
+
+```php
+themes.languages.default.flag = gb
+themes.languages.default.isoCode = en_GB
+themes.languages.default.isoCodeShort = en
+themes.languages.default.label = English
+```
+
+### Norwegian
+
+```php
+themes.languages.default.flag = no
+themes.languages.default.isoCode = nb_NO
+themes.languages.default.isoCodeShort = no
+themes.languages.default.label = Norwegian
+```
+
+
+
+
+
 # Fluid variables
 
 >* var
