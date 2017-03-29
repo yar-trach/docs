@@ -537,10 +537,10 @@ plugin.tx_pxanewslettersubscription {
 >Add this to **Setup**
 
 ```php
-themes.languages.default.flag = <**flag**>
-themes.languages.default.isoCode = <**iso_lang_code**>
-themes.languages.default.isoCodeShort = <**iso_lang_code_short**>
-themes.languages.default.label = <**lang_label**>
+themes.languages.default.flag = <flag>
+themes.languages.default.isoCode = <iso_lang_code>
+themes.languages.default.isoCodeShort = <iso_lang_code_short>
+themes.languages.default.label = <lang_label>
 ```
 
 ### Swedish
