@@ -14,7 +14,7 @@
 
 # Change viewport
 
->Add this lines to **Setup** 
+>Add this lines to **Setup**
 
 ```properties
 page.meta >
@@ -41,7 +41,7 @@ page.meta {
 >Add this lines to **Setup**
 
 ```php
-page.headerData.231 = TEXT 
+page.headerData.231 = TEXT
 page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
 ```
 
@@ -65,9 +65,9 @@ page.headerData.231.value = <link href="https://fonts.googleapis.com/css?family=
 
 >options:
 
->* 1910 = layout
+>* 1910 (800 t38) = layout
 >* 365 = wrapper
->* 395 = aligning
+>* 395 (830 t38) = aligning
 >* 375 = margin-top
 >* 385 = margin-bottom
 
@@ -176,7 +176,7 @@ TCEFORM.tt_content.wrapper {
                                     <title>color</title>
                                     <module>
                                         <name>wizard_colorpicker</name>
-                                    </module> 
+                                    </module>
                                     <JSopenParams>height=600,width=380,status=0,menubar=0,scrollbars=1</JSopenParams>
                                 </colorChoice>
                             </wizards>
@@ -351,7 +351,7 @@ tx_news.templateLayouts {
 >And this to **Setup**
 
 ```php
-plugin.tx_news.view.partialRootPaths.2 = fileadmin/templates/News/Partials/ 
+plugin.tx_news.view.partialRootPaths.2 = fileadmin/templates/News/Partials/
 ```
 
 
@@ -449,7 +449,7 @@ page {
 >* debug
 >* setup
 
->Add this to **Setup** for debugging 
+>Add this to **Setup** for debugging
 
 ```php
 config.contentObjectExceptionHandler = 0
@@ -662,7 +662,7 @@ RewriteRule ^(.*)$ http://www.intimhalsa.se/patients/ [R=301,L]
 
 # How to check redirects locally
 
->Add sending domain locally 
+>Add sending domain locally
 
 >Ping new site
 
@@ -701,7 +701,7 @@ $ ping se.triolab.typo3konsult.se
 
 >Add this to **Setup**, where "**L**" is ID of language.
 
->Lang ID you can find in "List" 
+>Lang ID you can find in "List"
 
 >Default lang
 
@@ -803,7 +803,7 @@ RTE.classes.btn-primary-background.name = Primary Button
 
 ```php
 RTE.default{
-    ignoreMainStyleOverride = 1 
+    ignoreMainStyleOverride = 1
     useCSS = 1
     showTagFreeClasses = 1
     contentCSS = fileadmin/templates/css/rte.css
@@ -1047,4 +1047,24 @@ lib.menu.language.standard.templateName = LanguageMenuDropdown
         </div>
     </div>
 </f:if>
+```
+
+
+
+
+
+# Force jQuery to be included first
+
+>Go to Templates > Info/Modify > **Setup**
+>Search "jquery"
+>Add "forceOnTop = 1" to settings
+
+```php
+includeJSFooterlibs {
+  jquery = {$themes.configuration.feLayoutPath}/less/jquery.js
+  jquery {
+      external = 0
+      forceOnTop = 1
+  }
+}
 ```
