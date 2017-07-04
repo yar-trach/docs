@@ -18,3 +18,22 @@ tt_content.stdWrap.innerWrap.cObject.108 {
  	#30.cObject.menu.value = >|</div>
 }
 ```
+
+
+
+
+# Add icons to Accordion
+
+>Add this to **template of Accordion**
+
+```TypoScript
+<flux:field.userFunc name="icon" userFunc="Pixelant\PxaGenericContent\UserFunction\DynamicIcons->renderField" default="" />
+```
+
+>And render icon like this
+
+```TypoScript
+<f:if condition="{icon}">
+  <span class="icons icon-{icon}"></span>
+</f:if>
+```
