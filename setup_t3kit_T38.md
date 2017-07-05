@@ -14,7 +14,7 @@
 
 3. Clone the main repo of t3kit into ```sites_docroot```
 	* git clone git@github.com:t3kit/t3kit.git thesitename.com
-	* the last "thesitename.com" is the folder which it is created into, if not set, then the folder name will be "t3kit". 
+	* the last "thesitename.com" is the folder which it is created into, if not set, then the folder name will be "t3kit".
 	* Change directory to ```/sites_docroot/thesitename.com```
 	* Run ```composer install --no-dev```
 	* Then we will need to change the remote url repository
@@ -95,3 +95,15 @@ CustomLog /var/log/apache2/access_nameofsite.com.log combined (CHANGE)
 	* ```apachectl configtest```
 	* Reload the configuration:
 	* ```service apache2 graceful```
+
+
+
+
+
+>Add site to **https://app.dotkeeper.club**
+
+**sitename**.typo3konsult.se > CNAME > c7064.cloudnet.se (Shared05)
+
+>Add languages in Theme
+
+>Add SOLR core
