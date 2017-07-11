@@ -1068,3 +1068,23 @@ includeJSFooterlibs {
   }
 }
 ```
+
+
+
+
+
+# Add SVG image to extension's partial/template files
+
+>Add this to file where needed:
+
+```php
+<ppm:svg source="{f:uri.resource(path: 'Icons/FILE_NAME.svg', extensionName: 'EXT_NAME')}"></ppm:svg>
+```
+
+>Example:
+
+```php
+<ppm:svg source="{f:uri.resource(path: 'Icons/list.svg', extensionName: 'pxa_penlink_pm_changes')}" width="18"></ppm:svg>
+```
+
+>It will take icon from '/typo3conf/ext/pxa_penlink_pm_changes/Resources/Public/Icons/list.svg'
