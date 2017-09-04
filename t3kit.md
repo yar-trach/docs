@@ -1088,3 +1088,36 @@ includeJSFooterlibs {
 ```
 
 >It will take icon from '/typo3conf/ext/pxa_penlink_pm_changes/Resources/Public/Icons/list.svg'
+
+
+
+
+# Concatenate and minify CSS and JS
+
+>Add this to **Setup**:
+
+```php
+config {
+  concatenateJs = 1
+  concatenateCss = 1
+
+  compressJs = 1
+  compressCss = 1
+}
+
+page {
+  includeJS {
+    myFile1 = fileadmin/js_file1.js
+
+    myFile2 = fileadmin/js_file2.js
+    myFile2.excludeFromConcatenation = 1
+  }
+
+  includeCSS {
+    myFile1 = fileadmin/css_file1.css
+
+    myFile2 = fileadmin/css_file2.css
+    myFile2.disableCompression = 1
+  }
+}
+```
