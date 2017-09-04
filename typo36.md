@@ -166,3 +166,21 @@ tt_content.stdWrap.innerWrap.cObject.108 {
 ```TypoScript
 <f:image src="{child.child.image}" minWidth="110" />
 ```
+
+
+
+
+
+# Add option box
+
+> Add this to section Configuration:
+
+```TypoScript
+<flux:field.select name="settings.colored"
+	items="{
+		0:{0:'No background',1:'transparent'},
+		1:{0:'Dark background',1:'dark'}
+		2:{0:'White background',1:'light'}
+	}"
+/>
+```
